@@ -10,20 +10,22 @@ public class Main {
 
     public static void runCLI() {
         CLI.intro();
-        CLI.mainMenu();
         int choice;
         do {
+            CLI.mainMenu();
             choice = Validator.getInt(1, 4);
             //Need to check input
             switch (choice) {
                 case 1:
-                    //Run add Client
+                    CLI.addClient();
+                    break;
                 case 2:
                     //Run add Pet
                 case 3:
                     //Run schedule appointment
                 case 4:
                     System.out.println("Closing...");
+                    Validator.closeScanner();
             }
         }while(choice != 4);
     }

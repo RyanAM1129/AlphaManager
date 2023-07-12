@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class Validator {
     final static private Scanner input = new Scanner(System.in);
@@ -18,8 +19,26 @@ public class Validator {
                 System.out.println("That choice does not exist...");
             }
         } else {
+            input.next();
             System.out.println("You did not enter a number...");
         }
         return getInt(min, max);
+    }
+
+    public static String getName() {
+        Pattern namePattern = Pattern.compile("[A-z]+( ([A-z]\\.|[A-z]+))? [A-z]+-?[A-z]*");
+        input.next();   //Cleans the Scanner for the next input
+        String check = input.nextLine();
+        Matcher matcher = namePattern.matcher(check);
+
+        if(!matcher.find()) {
+            System.out.println("Please enter a properly formatted name...\n>");
+            return getName();
+        }
+        return check;
+    }
+
+    public static void closeScanner() {
+        input.close();
     }
 }
