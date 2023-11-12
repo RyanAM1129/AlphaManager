@@ -19,7 +19,7 @@ public class CLI {
     public static void addClient() {
         System.out.println("Please enter the clients name: ");
         System.out.print(">");
-        String theName = Validator.getName();
+        String theName = Validator.getClientName();
         System.out.println("Please enter the clients eMail: ");
         System.out.print(">");
         Email theEmail = Validator.getEmail();
@@ -34,11 +34,22 @@ public class CLI {
         for(Client client : ClientBook.getClientBook()) {
             System.out.println("Name: " + client.getName());
             System.out.println("eMail: " + client.getEmail());
-            System.out.println("Phone Number: " + client.getName());
+            System.out.println("Phone Number: " + client.getPhoneNumber());
             System.out.println("Pets: ");
-            for(Pet pet : client.getPets()) {
-                System.out.println("\t" + pet.getName());
+            if(client.hasPets()) {
+                for (Pet pet : client.getPets()) {
+                    System.out.println("\t" + pet.getName());
+                }
+            } else {
+                System.out.println("\tempty");
             }
         }
+    }
+
+    public static void addPet() {
+        System.out.println("Please enter the pet's name:");
+        System.out.print(">");
+        String theName = Validator.getPetName();
+
     }
 }

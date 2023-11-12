@@ -26,7 +26,7 @@ public class Validator {
         return getInt(min, max);
     }
 
-    public static String getName() {
+    public static String getClientName() {
         Pattern namePattern = Pattern.compile("^[A-z]+( ([A-z]\\.|[A-z]+))? [A-z]+-?[A-z]*$");
         String theCheck = myInput.nextLine();
         Matcher theMatcher = namePattern.matcher(theCheck);
@@ -35,7 +35,7 @@ public class Validator {
             return theCheck;
         }
         System.out.println("Please enter a properly formatted name...\n>");
-        return getName();
+        return getClientName();
     }
 
     public static Email getEmail() {
@@ -64,5 +64,17 @@ public class Validator {
 
     public static void closeScanner() {
         myInput.close();
+    }
+
+    public static String getPetName() {
+        Pattern namePattern = Pattern.compile("^[A-z.]+( [A-z]+)*$");
+        String theCheck = myInput.nextLine();
+        Matcher theMatcher = namePattern.matcher(theCheck);
+
+        if(theMatcher.find()) {
+            return theCheck;
+        }
+        System.out.println("Please enter a properly formatted name...\n>");
+        return getClientName();
     }
 }

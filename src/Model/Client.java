@@ -50,7 +50,7 @@ public class Client {
     }
 
     public Pet[] getPets() {
-        return (Pet[]) myPets.toArray();
+        return  myPets.toArray(new Pet[myPets.size()]);
     }
 
     public void setPets(final Pet[] thePets) {
@@ -60,6 +60,10 @@ public class Client {
     }
 
     public void addPet(final Pet thePet) {
+        myPets.add(thePet);
+    }
 
+    public boolean hasPets() {
+        return !myPets.isEmpty();
     }
 }

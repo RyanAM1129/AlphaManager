@@ -21,14 +21,17 @@ public class Main {
                     break;
                 case 2:
                     CLI.printAllClients();
+                    break;
                 case 3:
-                    //Run add Pet
+                    CLI.addPet();
+                    break;
                 case 4:
                     //Run schedule appointment
+                    break;
                 case 5:
                     System.out.println("Closing...");
                     Validator.closeScanner();
             }
-        }while(choice != 4);
+        }while(choice != 5);
     }
 }
